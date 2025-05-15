@@ -1,0 +1,18 @@
+
+services:
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GOODUSER: nuida
+        UID: 1000
+        MAIL: nada.manar@etu.univ-orleans.fr
+        NOM: "Nada Manar"
+    container_name: projet_container1
+    volumes:
+    - ./dev:/var/www/html
+    ports:
+    - "5000:8000"
+    environment:
+      PHP_IDE_CONFIG: serverName=toto
